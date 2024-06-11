@@ -1,8 +1,4 @@
- Tech-Stack used :
-        * Springboot
-        * MySQL
-        * JWT of springboot 3.0 Version
-        * Spring starter validation
+ Tech-Stack used : Springboot | MySQL | JWT of springboot 3.0 Version | Spring starter validation
 
     End-points :
         Register a new user : http://localhost:8080/api/v1/register/user          [POST Request]
