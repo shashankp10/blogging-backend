@@ -2,7 +2,7 @@ package com.blog.Service.ServiceImpl;
 
 
 import com.blog.Repo.UserRepo;
-import com.blog.entity.UserAuth;
+import com.blog.Entity.UserAuth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;

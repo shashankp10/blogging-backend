@@ -1,6 +1,6 @@
 package com.blog.Service;
 
-import com.blog.dto.UserDto;
+import com.blog.DTO.UserDto;
 
 public interface UserService {
     UserDto createUser(UserDto customerDto);

@@ -2,8 +2,8 @@ package com.blog.Service.ServiceImpl;
 
 import com.blog.Repo.BlogRepo;
 import com.blog.Service.BlogService;
-import com.blog.dto.BlogDto;
-import com.blog.entity.Blog;
+import com.blog.DTO.BlogDto;
+import com.blog.Entity.Blog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,8 +59,14 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public void deleteBlog(int postId) {
-        blogRepo.deleteById(postId);
+    public boolean deleteBlog(int postId) {
+        Optional<Blog> optionalBlog = blogRepo.findById(postId);
+        if (optionalBlog.isPresent()) {
+            blogRepo.deleteById(postId);
+            return true;
+        } else {
+            return false;
+        }
     }
     @Override
     public List<BlogDto> getAllBlogs() {

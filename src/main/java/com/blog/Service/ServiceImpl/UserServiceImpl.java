@@ -1,9 +1,10 @@
 package com.blog.Service.ServiceImpl;
 
+import com.blog.Exception.EmailAlreadyExistsException;
 import com.blog.Repo.UserRepo;
 import com.blog.Service.UserService;
-import com.blog.dto.UserDto;
-import com.blog.entity.UserAuth;
+import com.blog.DTO.UserDto;
+import com.blog.Entity.UserAuth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder;
     @Override
     public UserDto createUser(UserDto userDto) {
+        if (userRepo.existsByEmail(userDto.getEmail())) {
+            throw new EmailAlreadyExistsException("Email already exists");
+        }
         UserAuth user = new UserAuth();
         user.setEmail(userDto.getEmail());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));

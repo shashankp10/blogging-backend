@@ -1,6 +1,6 @@
 package com.blog.Repo;
 
-import com.blog.entity.Blog;
+import com.blog.Entity.Blog;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
